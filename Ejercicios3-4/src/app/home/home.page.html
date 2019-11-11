@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Carrito de la compra
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="/add" routerDirection="forward">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="5">
+        Artículo
+      </ion-col>
+      <ion-col size="2">
+        Precio
+      </ion-col>
+      <ion-col size="2">
+        Cantidad
+      </ion-col>
+      <ion-col size="3">
+        Subtotal
+      </ion-col>
+    </ion-row>
+    <ion-item-divider></ion-item-divider>
+    <ion-row *ngFor="let i of items">
+      <ion-col size="5">
+        {{ i.item }}
+      </ion-col>
+      <ion-col size="2">
+        {{ i.price }} €
+      </ion-col>
+      <ion-col size="2">
+        {{ i.quantity }}
+      </ion-col>
+      <ion-col size="3">
+        {{ i.subtotal }} €
+      </ion-col>
+    </ion-row>
+    <ion-item-divider></ion-item-divider>
+    <ion-row>
+      <ion-col offset="9" size="3">
+        Total: {{ getTotal() }} €
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

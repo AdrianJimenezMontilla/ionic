@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir elemento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position='stacked' required>Producto</ion-label>
+    <ion-input [(ngModel)]="item.item"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position='stacked' required>Precio</ion-label>
+    <ion-input type="number" min="0" [(ngModel)]="item.price"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position='stacked' required>Cantidad</ion-label>
+    <ion-input type="number" min="0" [(ngModel)]="item.quantity"></ion-input>
+  </ion-item>
+  <ion-button disabled
+  *ngIf="item.item == '' || item.price == 0 || item.quantity == 0 "
+  expand="full">
+    Guardar
+  </ion-button>
+  <ion-button (click)="saveItem()"
+  *ngIf="item.item != '' && item.price > 0 && item.quantity > 0 "
+  expand="full">
+    Guardar
+  </ion-button>
+</ion-content>
