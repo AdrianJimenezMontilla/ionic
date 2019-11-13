@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Películas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of films" class="ion-text-center">
+    <h3 (click)="muestraDetalles(item.title)" >{{item.title}}</h3>
+    <h3 *ngIf="click && films[i].title == item.title"> Fecha: {{ item.release }} Puntuacion: {{ item.score }} Detalles:{{ item.synopsis }}</h3>
+    
+    <img src="../../assets/images/{{ item.cover }}" alt="img" width="200px">
+    <ion-button>Borrar</ion-button>
+  </div>
+  
+</ion-content>
